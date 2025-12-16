@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サブスク合計金額チェッカー</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#007aff" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>サブスク合計金額チェッカー</h1>
+
+      <input
+        id="nameInput"
+        type="text"
+        placeholder="サブスク名（例：Netflix）"
+      />
+      <input id="priceInput" type="number" placeholder="月額料金（円）" />
+
+      <button id="addButton">追加</button>
+
+      <ul id="list"></ul>
+
+      <div class="total">月額合計：¥<span id="total">0</span></div>
+    </div>
+
+    <div class="total">年額合計：¥<span id="yearlyTotal">0</span></div>
+
+    <script src="script.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+  </body>
+</html>
