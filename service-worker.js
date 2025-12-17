@@ -1,4 +1,4 @@
-const CACHE_NAME = "subsc-checker-v2";
+const CACHE_NAME = "subsc-checker-v3"; // 
 const urlsToCache = [
   "./",
   "./index.html",
@@ -13,6 +13,26 @@ self.addEventListener("install", (event) => {
       return cache.addAll(urlsToCache);
     })
   );
+
+  // ★ 追加：新しいSWを即有効化
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key); // 古いキャッシュ削除
+          }
+        })
+      );
+    })
+  );
+
+  // ★ 追加：すぐにページを支配
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
