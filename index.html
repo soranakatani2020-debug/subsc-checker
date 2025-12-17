@@ -27,6 +27,22 @@
     </div>
 
     <div class="total">年額合計：¥<span id="yearlyTotal">0</span></div>
+    <div class="limit">
+      <label for="limitInput">年額上限金額（円）</label>
+      <input id="limitInput" type="number" placeholder="例：100000" />
+    </div>
+
+    <p id="warning" class="warning" style="display: none">
+      ⚠ 年間支出が設定した上限を超えています！
+    </p>
+    <div id="adArea" class="ad-area">
+      <!-- 広告エリア -->
+      <p class="ad-label">おすすめ</p>
+      <div class="ad-box">
+        <!-- ここに後で AdSense を入れる -->
+        広告表示エリア
+      </div>
+    </div>
 
     <script src="script.js"></script>
     <script>
@@ -34,5 +50,10 @@
         navigator.serviceWorker.register("service-worker.js");
       }
     </script>
+    <footer class="footer">
+      <a href="privacy.html">プライバシーポリシー</a> |
+      <a href="terms.html">利用規約</a> |
+      <a href="contact.html">お問い合わせ</a>
+    </footer>
   </body>
 </html>

@@ -1,5 +1,6 @@
 // localStorage に使うキー名
 const STORAGE_KEY = "subscriptions";
+const LIMIT_KEY = "yearlyLimit";
 
 // サブスク一覧
 let subscriptions = [];
@@ -12,6 +13,12 @@ function init() {
   if (saved) {
     subscriptions = JSON.parse(saved);
   }
+
+  const savedLimit = localStorage.getItem(LIMIT_KEY);
+  if (savedLimit) {
+    document.getElementById("limitInput").value = savedLimit;
+  }
+
   render();
 }
 
@@ -59,6 +66,8 @@ function render() {
   const list = document.getElementById("list");
   const totalEl = document.getElementById("total");
   const yearlyEl = document.getElementById("yearlyTotal");
+  const warningEl = document.getElementById("warning");
+  const limitInput = document.getElementById("limitInput");
 
   list.innerHTML = "";
 
@@ -84,7 +93,17 @@ function render() {
   totalEl.textContent = monthlyTotal.toLocaleString();
   yearlyEl.textContent = yearlyTotal.toLocaleString();
 
-  // 削除ボタンのイベント登録
+  // 警告判定
+  const limit = Number(limitInput.value);
+  if (limit > 0 && yearlyTotal > limit) {
+    warningEl.style.display = "block";
+    yearlyEl.classList.add("over-limit");
+  } else {
+    warningEl.style.display = "none";
+    yearlyEl.classList.remove("over-limit");
+  }
+
+  // 削除ボタン
   document.querySelectorAll(".delete-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const index = Number(e.target.dataset.index);
@@ -93,8 +112,13 @@ function render() {
   });
 }
 
-// 追加ボタンのイベント
+// イベント登録
 document.getElementById("addButton").addEventListener("click", addSubscription);
+
+document.getElementById("limitInput").addEventListener("input", (e) => {
+  localStorage.setItem(LIMIT_KEY, e.target.value);
+  render();
+});
 
 // 初期化
 init();

@@ -65,3 +65,74 @@ li {
   font-size: 16px;
   cursor: pointer;
 }
+.limit {
+  margin-top: 16px;
+}
+
+.limit label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.warning {
+  margin-top: 12px;
+  color: #ff3b30;
+  font-weight: bold;
+  text-align: center;
+}
+/* 年額が上限超過したとき */
+.over-limit {
+  color: #ff3b30;
+  font-weight: bold;
+}
+/* 年額が上限内のとき */
+.within-limit {
+  color: #4cd964;
+  font-weight: bold;
+}
+/* 年額が上限未設定のとき */
+.no-limit {
+  color: #000000;
+  font-weight: bold;
+}
+.over-limit {
+  color: #ff3b30;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.within-limit {
+  color: #4cd964;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.no-limit {
+  color: #000000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#adArea {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.ad-label {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.ad-box {
+  height: 90px; /* AdSense定番サイズ */
+  background: #f5f5f5;
+  text-align: center;
+  line-height: 90px;
+  font-size: 13px;
+  color: #666;
+}
+.ad-box img {
+  max-height: 80px;
+  vertical-align: middle;
+}
