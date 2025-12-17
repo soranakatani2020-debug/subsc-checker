@@ -1,5 +1,7 @@
 # サブスク合計金額チェッカー
 
+！[アプリ画面] <img width="1206" height="2488" alt="image" src="https://github.com/user-attachments/assets/a1e6caca-df69-40f7-a45e-dda889dab968" />
+
 ## 概要
 
 **サブスク合計金額チェッカー**は、複数のサブスクリプションサービスの月額・年額合計を可視化し、
@@ -91,6 +93,6 @@
 ## ライセンス
 
 This project is licensed under the MIT License.
-<img width="1206" height="2488" alt="image" src="https://github.com/user-attachments/assets/a1e6caca-df69-40f7-a45e-dda889dab968" />
+
 
 
