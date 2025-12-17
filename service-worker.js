@@ -1,4 +1,4 @@
-const CACHE_NAME = "subsc-app-v1";
+const CACHE_NAME = "subsc-checker-v2";
 const urlsToCache = [
   "./",
   "./index.html",
@@ -22,3 +22,4 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
